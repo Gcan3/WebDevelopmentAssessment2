@@ -1,0 +1,196 @@
+/*Default personal settings for my project*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+/*Background styling*/
+/*Using background gif from online (gifer)*/
+/*positioning the gif on the right so that it can't affect the text (on full screen)*/
+.background {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #000;
+    background-image: url(media/triangle.gif);
+    background-position: 85% 60%;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    color: #fff;
+    padding: 0 8%;
+}
+
+/*Settings for all text and contents inside this div class*/
+.text-box {
+    color: #fff;
+    position: absolute;
+    padding-top: 10%;
+}
+
+/*Title styling*/
+/*Using a png as a looping design effect for the hollow title*/
+.text-box h1 {
+    font-size: 90px;
+    line-height: 100px;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    background: url(media/back.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+
+/*Animation for the title specifically*/
+@keyframes back {
+    100% {
+        background-position: 2000px 0;
+    }
+}
+
+/*Subtext styling*/
+.text-box h3 {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+/*Button styling*/
+/*Adding transition for the hover effect*/
+/*Note: I used transparent border so that the button does not awkwardly adjust its visual size
+between hovering and non-hovering events*/
+button {
+    padding: 15px 35px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: transparent solid 3px;
+    background-color: #393939;
+    outline: none;
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+button > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*Making the insides of the button (except the text) transparent during hover*/
+/*making the border visible during hover*/
+button:hover {
+    background-color: transparent;
+    border: #fff solid 3px;
+}
+
+/*Logo styling using plain text and css*/
+/*Main logo "picture"*/
+/*using the "user-select: none" as a way to act as a picture*/
+/*border to aesthetically enhance the logo*/
+h2 {
+    margin-top: 30px;
+    padding: 5px;
+    letter-spacing: 3px;
+    border-style: solid;
+    cursor: default;
+    user-select: none;
+}
+
+/*Subtext for the logo*/
+/*Using similar user interaction settings as the title logo so it does not act as a text*/
+/*Additionally, I'm setting the text to the right of the logo for more professional styling*/
+p {
+    margin-top: 5px;
+    margin-left: 87px;
+    font-size: 12px;
+    cursor: default;
+    user-select: none;
+}
+
+/*When the logo is hovered, the texts are changing colors using the masks*/
+/*Implementing the masks to the text using the background clip*/
+.logo:hover {
+    background-image: repeating-linear-gradient(rgb(255, 255, 255), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1), rgb(255, 255, 255));
+    background-size: 500% 500%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logo 4s ease infinite;
+}
+
+/*Using keyframes to animate the logo hover effect by changing background position*/
+@keyframes logo { 
+    0% {
+        background-position: 0% 0%;
+    }
+
+    25% {
+        background-position: 25% 25%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 25% 25%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/*Header styling*/
+/*Makes contents inside the header to line up horizontally*/
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Removing list styles and positioning them horizontally*/
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 25px;
+}
+
+/*Hover effect setting for the anchor tags*/
+/*Setting up underlines using background sizing and positioning*/
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    background: linear-gradient(to right, rgb(195, 197, 88), rgb(235, 243, 243)),
+                linear-gradient(to right, rgba(0, 100, 200, 1), rgba(255, 0, 180, 1), rgba(195, 197, 88));
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 0% 100%, 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 500ms;
+}
+
+/*During hover, the underline disappears and the new background appears*/
+/*This is done by sizing it in a way that the first and second underlines are visible*/
+nav ul li a:hover, a:focus {
+    background-size: 0 0.1em, 100% 0.1em;
+}
+
+/*Basic footer styling*/
+footer {
+    bottom: 3%;
+    height: 50px;
+    width: 85%;
+    margin: auto;
+    background-color: transparent;
+    position: fixed;
+}
+
+/*Changing the heading2 so that it does not affect other h2 elements*/
+footer > h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+}
