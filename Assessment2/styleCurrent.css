@@ -1,0 +1,324 @@
+/*For smooth scrolling*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*Basic settings*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+}
+
+/*Logo styling using plain text and css*/
+/*Main logo "picture"*/
+/*using the "user-select: none" as a way to act as a picture*/
+/*border to aesthetically enhance the logo*/
+h2 {
+    margin-top: 30px;
+    padding: 5px;
+    letter-spacing: 3px;
+    border-style: solid;
+    cursor: default;
+    user-select: none;
+}
+
+/*Subtext for the logo*/
+/*Using similar user interaction settings as the title logo so it does not act as a text*/
+/*Additionally, I'm setting the text to the right of the logo for more professional styling*/
+p {
+    margin-top: 5px;
+    margin-left: 87px;
+    font-size: 12px;
+    cursor: default;
+    user-select: none;
+}
+
+/*When the logo is hovered, the texts are changing colors using the masks*/
+/*Implementing the masks to the text using the background clip*/
+.logo:hover {
+    background-image: repeating-linear-gradient(rgb(255, 255, 255), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1), rgb(255, 255, 255));
+    background-size: 500% 500%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logo 4s ease infinite;
+}
+
+/*Using keyframes to animate the logo hover effect by changing background position*/
+@keyframes logo { 
+    0% {
+        background-position: 0% 0%;
+    }
+
+    25% {
+        background-position: 25% 25%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 25% 25%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/*Header styling*/
+/*Makes contents inside the header to line up horizontally*/
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    width: 100%;
+    padding: 1% 8%;
+}
+
+/*Removing list styles and positioning them horizontally*/
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 25px;
+}
+
+/*Hover effect setting for the anchor tags*/
+/*Setting up underlines using background sizing and positioning*/
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    background: linear-gradient(to right, rgb(195, 197, 88), rgb(235, 243, 243)),
+                linear-gradient(to right, rgba(0, 100, 200, 1), rgba(255, 0, 180, 1), rgba(195, 197, 88));
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 0% 100%, 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 500ms;
+}
+
+/*During hover, the underline disappears and the new background appears*/
+/*This is done by sizing it in a way that the first and second underlines are visible*/
+nav ul li a:hover, a:focus {
+    background-size: 0 0.1em, 100% 0.1em;
+}
+
+/*Basic settings for all contents inside*/
+.content-box {
+    min-height: 100vh;
+    width: 85%;
+    background-color: #000;
+    margin: auto;
+    border: white solid 2px;
+    margin-bottom: 2%;
+}
+
+/*Basic title for each pages*/
+.page-title {
+    margin-top: 5%;
+    text-align: center;
+    display: block;
+}
+
+/*Styling for shine effect*/
+/*Applying the mask for the shiny touch*/
+h1 {
+    font-size: 50px;
+    color: #fff;
+    text-decoration: none;
+    cursor: default;
+    user-select: none;
+    letter-spacing: 4px;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(255, 255, 255, 0.6) 30%, #000 50%, rgba(233, 213, 98, 0.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+}
+
+/*Shine animation by moving the mask(of white fade color) continuously*/  
+@-webkit-keyframes shine {
+    from {
+      -webkit-mask-position: 150%;
+    }
+    
+    to {
+      -webkit-mask-position: -50%;
+    }
+}
+
+/*Article settings*/
+article {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.507);
+    width: 85%;
+    margin: auto;
+    color: #fff;
+    border-radius: 10px;
+}
+
+/*Text positioning setting (inside the article)*/
+.text1 {
+    margin: 15px;
+    padding-bottom: 10px;
+}
+
+/*Article text settings*/
+h3 {
+    color: rgb(44, 39, 39);
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+article > p {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/*Next button customization*/
+.next-button {
+    padding: 5px 35px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: transparent solid 3px;
+    background-color: #393939;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 500ms ease;
+    text-decoration: none;
+    color: #fff;
+}
+
+/*Hover effect for the button*/
+.next-button:hover {
+    background-color: transparent;
+    border: #fff solid 3px;
+}
+
+/*Back to top button basic setting*/
+/*Used transition for hover effects*/
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    border-color: transparent;
+    transition: all 0.3s ease;
+}
+
+/*Changing colors of the elements when hovered*/
+.back-to-top:hover, .back-to-top:active {
+    background-color: #000;
+    color: #fff;
+}
+
+/*Makes the back to top button invisible by deafult*/
+/*It will appear once the user goes down (refer to script of)*/
+.hidden {
+    display: none;
+}
+
+/*Social media icon bar*/
+/*Fixed position so that it appears no matter where the user is scrolling to*/
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*Basic icon settings*/
+.icon-bar a {
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 11px;
+}
+
+/*Hover settings for the social media icons*/
+.icon-bar a:hover {
+    background: #fff;
+    color: #000;
+}
+
+/*Basic footer styling*/
+footer {
+    height: 50px;
+    width: 85%;
+    margin: auto;
+    background-color: transparent;
+}
+
+/*Changing the heading2 so that it does not affect other h2 elements*/
+footer > h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    border: #fff solid 1px;
+}
+
+/*Gif spacing*/
+.img1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/*Image 2 sizing*/
+.img2 {
+    width: 300px;
+    height: auto;
+}
+
+/*Color changing sentence*/
+.aniexmpl {
+    font-size: 30px;
+    margin: 15px;
+    padding-bottom: 10px;
+    text-decoration: underline;
+    animation: underline 2s infinite;
+}
+
+/*Animation for the sentence*/
+@-webkit-keyframes underline {
+    0% {
+        color: #000;
+        text-decoration-color: aqua;
+    }
+
+    20% {
+        color: aqua;
+        text-decoration-color: blueviolet;
+    }
+
+    70% {
+        color: blueviolet;
+        text-decoration-color: aqua;
+    }
+
+    100% {
+        color: crimson;
+        text-decoration-color: black;
+    }
+}
