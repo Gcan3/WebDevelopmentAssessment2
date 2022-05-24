@@ -26,6 +26,8 @@
     color: #fff;
     position: absolute;
     padding-top: 10%;
+    user-select: none;
+    cursor: default;
 }
 
 /*Title styling*/
